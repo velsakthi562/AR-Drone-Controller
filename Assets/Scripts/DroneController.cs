@@ -5,6 +5,8 @@ using UnityEngine;
 public class DroneController : MonoBehaviour
 {
     private Animator anim;
+    public float speedMultiplayer;
+
 
     Vector3 speed = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -18,7 +20,7 @@ public class DroneController : MonoBehaviour
     public void Move(float speedX, float speedZ)
     {
         speed.x = speedX;
-        speed.y = speedZ;
+        speed.z = speedZ;
 
         DroneMovement();
     }
@@ -28,6 +30,6 @@ public class DroneController : MonoBehaviour
     // Update is called once per frame
     void DroneMovement()
     {
-        transform.localPosition += speed * Time.deltaTime; 
+        transform.localPosition += speed *speedMultiplayer* Time.deltaTime; 
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public DroneController controller;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float speedX = Input.GetAxis("Horizontal");
+        float speedZ = Input.GetAxis("Vertical");
+
+        controller.Move(speedX, speedZ);
     }
 }
